@@ -3,11 +3,13 @@ package com.community.lcommunity.provider;
 import com.alibaba.fastjson.JSON;
 import com.community.lcommunity.dto.AccessTokenDTO;
 import com.community.lcommunity.dto.GithubUser;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Slf4j
 @Component
 public class GithubProvider {
     public String getAccessToken(AccessTokenDTO accessTokenDTO) {
@@ -22,8 +24,11 @@ public class GithubProvider {
             String string = response.body().string();
             String tokenStr = string.split("&")[0];
             String token = tokenStr.split("=")[1];
+            log.info("getAccessToken response:" + string);
+            System.out.println(string);
             return token;
         } catch (IOException e) {
+            log.info("IOException :" + e);
             e.printStackTrace();
         }
         return null;
@@ -39,6 +44,7 @@ public class GithubProvider {
         try {
             response = client.newCall(request).execute();
             String string = response.body().string();
+            log.info("getUser response:" + string);
             System.out.println(string);
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;

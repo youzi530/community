@@ -1,0 +1,2 @@
+<conversionRule conversionWord="msg" converterClass="cn.xxm.ff.log.logback.SensitiveDataConverter">
+</conversionRule>
