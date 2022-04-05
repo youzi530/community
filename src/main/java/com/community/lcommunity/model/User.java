@@ -1,5 +1,14 @@
 package com.community.lcommunity.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     private Integer id;
@@ -7,55 +16,7 @@ public class User {
     private String accountId;
     private String token;
     private Long gmtCreate;
-    private Long gtmModified;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Long getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Long getGtmModified() {
-        return gtmModified;
-    }
-
-    public void setGtmModified(Long gtmModified) {
-        this.gtmModified = gtmModified;
-    }
+    private Long gmtModified;
 
     @Override
     public String toString() {
@@ -65,7 +26,7 @@ public class User {
                 ", accountId='" + accountId + '\'' +
                 ", token='" + token + '\'' +
                 ", gmtCreate=" + gmtCreate +
-                ", gtmModified=" + gtmModified +
+                ", gmtModified=" + gmtModified +
                 '}';
     }
 }
