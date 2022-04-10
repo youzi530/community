@@ -20,13 +20,14 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(HttpServletRequest httpServletRequest) {
+        logger.info("index controller:");
         Cookie[] cookies = httpServletRequest.getCookies();
         for (Cookie cookie : cookies) {
             if ("token".equals(cookie.getName())) {
                 String token = cookie.getValue();
                 User user = userMapper.findByToken(token);
-                if(user != null){
-                    httpServletRequest.getSession().setAttribute("user",user);
+                if (user != null) {
+                    httpServletRequest.getSession().setAttribute("user", user);
                 }
                 break;
             }
